@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var correctQuestions = 0
     var indexOfSelectedQuestion: Int = 0
     
+    
     var gameSound: SystemSoundID = 0
     
     let triviaProvider = TriviaProvider()
@@ -41,7 +42,9 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
-        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: triviaProvider.trivia.count)
+        
+        indexOfSelectedQuestion = GKShuffledDistribution.init(lowestValue: 0, highestValue: triviaProvider.trivia.count).nextInt(upperBound: triviaProvider.trivia.count)
+        
         let questionDictionary = triviaProvider.trivia[indexOfSelectedQuestion]
         questionField.text = questionDictionary["Question"]
         playAgainButton.isHidden = true
