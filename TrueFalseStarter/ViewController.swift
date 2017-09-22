@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var correctQuestions = 0
     var indexOfSelectedQuestion: Int = 0
-    
+    var randomNumArray = [Int]()
+
     
     var gameSound: SystemSoundID = 0
     
@@ -26,14 +27,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGameStartSound()
         // Start game
         playGameStartSound()
         displayQuestion()
+        displayAnswers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,22 +46,52 @@ class ViewController: UIViewController {
     
     func displayQuestion() {
         
-        indexOfSelectedQuestion = GKShuffledDistribution.init(lowestValue: 0, highestValue: triviaProvider.trivia.count).nextInt(upperBound: triviaProvider.trivia.count)
         
-        let questionDictionary = triviaProvider.trivia[indexOfSelectedQuestion]
-        questionField.text = questionDictionary["Question"]
-        playAgainButton.isHidden = true
+        
+        
+        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: triviaProvider.trivia.count)
+        
+        //setup a random Num array to keep track of previous generated random numbers if they have not already been selected then the question is displaed
+        //if they have been selected then the method is called again.
+        
+        if !randomNumArray.contains(indexOfSelectedQuestion) {
+            let questionDictionary = triviaProvider.trivia[indexOfSelectedQuestion]
+            questionField.text = questionDictionary["Question"]
+            playAgainButton.isHidden = true
+            randomNumArray.append(indexOfSelectedQuestion)
+            
+        } else {
+            displayQuestion()
+        }
+        
+        
+        
+        
+    }
+    
+    func displayAnswers() {
+        let selectedQuestionDict = triviaProvider.trivia[indexOfSelectedQuestion]
+                
+        trueButton.setTitle(selectedQuestionDict["Option2"], for: .normal)
+        falseButton.setTitle(selectedQuestionDict["Option3"], for: .normal)
+        button3.setTitle(selectedQuestionDict["Answer"], for: .normal)
+        button4.setTitle(selectedQuestionDict["Option4"], for: .normal)
+
     }
     
     func displayScore() {
         // Hide the answer buttons
         trueButton.isHidden = true
         falseButton.isHidden = true
+        button3.isHidden = true
+        button4.isHidden = true
         
         // Display play again button
         playAgainButton.isHidden = false
         
         questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
+        
+        print("\(randomNumArray)")
         
     }
     
@@ -69,12 +102,23 @@ class ViewController: UIViewController {
         let selectedQuestionDict = triviaProvider.trivia[indexOfSelectedQuestion]
         let correctAnswer = selectedQuestionDict["Answer"]
         
-        if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
+        
+        
+        if (sender.title(for: .normal) == correctAnswer){
+            correctQuestions += 1
+            questionField.text = "Correct!"
+            print("\(correctAnswer!)")
+        } else {
+            questionField.text = "Sorry, wrong answer!"
+        }
+        
+        //original part of code
+        /**if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
             correctQuestions += 1
             questionField.text = "Correct!"
         } else {
             questionField.text = "Sorry, wrong answer!"
-        }
+        }**/
         
         loadNextRoundWithDelay(seconds: 2)
     }
@@ -82,10 +126,13 @@ class ViewController: UIViewController {
     func nextRound() {
         if questionsAsked == questionsPerRound {
             // Game is over
+            randomNumArray.removeAll()
             displayScore()
         } else {
             // Continue game
             displayQuestion()
+            displayAnswers()
+
         }
     }
     
@@ -93,6 +140,8 @@ class ViewController: UIViewController {
         // Show the answer buttons
         trueButton.isHidden = false
         falseButton.isHidden = false
+        button3.isHidden = false
+        button4.isHidden = false
         
         questionsAsked = 0
         correctQuestions = 0
