@@ -104,6 +104,7 @@
                             <constraint firstItem="I3V-ih-1Ky" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Izw-W6-bfo"/>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="N8z-cM-M9R"/>
                             <constraint firstItem="K17-uy-MvB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="UmI-Y5-Bxy"/>
+                            <constraint firstItem="K17-uy-MvB" firstAttribute="top" secondItem="WZE-P9-9cZ" secondAttribute="bottom" constant="80" id="VnH-Zn-tc4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0CZ-ZX-J5v" secondAttribute="trailing" constant="20" id="ZaJ-QR-Yiy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I3V-ih-1Ky" secondAttribute="trailing" constant="20" id="d4y-yw-4Pa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K17-uy-MvB" secondAttribute="trailing" constant="20" id="e0I-2T-E1g"/>
@@ -113,7 +114,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="WZE-P9-9cZ" secondAttribute="trailing" constant="20" id="ouQ-X0-M3w"/>
                             <constraint firstItem="WZE-P9-9cZ" firstAttribute="top" secondItem="0CZ-ZX-J5v" secondAttribute="bottom" constant="30" id="vja-54-w9s"/>
                             <constraint firstItem="0CZ-ZX-J5v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="xBK-ob-7hM"/>
-                            <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="I3V-ih-1Ky" secondAttribute="bottom" constant="100.5" id="yBd-fV-jR9"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

@@ -9,20 +9,13 @@
 
 struct TriviaProvider {
     let trivia: [[String : String]] =  [
-        ["Question": "Which dog is most stubborn?", "Answer": "Shiba Inu", "Option2": "Goldendoodle", "Option3": "Shih Tzu", "Option4": "Pomeranian"],
-        ["Question": "Who is the house cat?", "Answer": "Blue", "Option2": "Yellow", "Option3": "Green", "Option4": "Orange"],
-        ["Question": "Where is the Golden Gate Bridge?", "Answer": "San Francisco", "Option2": "Chicago", "Option3": "Miami", "Option4": "St. Louis"],
-        ["Question": "Which NFL team is represented by horse?", "Answer": "Broncos", "Option2": "Bears", "Option3": "Dolphins", "Option4": "Jaguars"]
+        ["Question": "Which dog is most stubborn?", "Option 1": "Goldendoodle", "Option 2": "Shiba Inu", "Option 3": "Shih Tzu", "Option 4": "Pomeranian", "Correct Answer": "2" ],
+        ["Question": "Who is the house cat?", "Option 1": "Blue", "Option 2": "Yellow", "Option 3": "Green", "Option 4": "Orange", "Correct Answer": "1"],
+        ["Question": "Where is the Golden Gate Bridge?", "Option 1": "Miami", "Option 2": "Chicago", "Option 3": "San Francisco", "Option 4": "St. Louis", "Correct Answer": "3"],
+        ["Question": "Which NFL team is represented by horse?", "Option 1": "Dolphins", "Option 2": "Bears", "Option 3": "Broncos", "Option 4": "Jaguars", "Correct Answer": "3"]
         
         
         
-    ]
-    
-    let answers: [String] = [
-        "Answer",
-        "Option2",
-        "Option3",
-        "Option3"
     ]
     
     let trivia2: [[String : String]] =  [

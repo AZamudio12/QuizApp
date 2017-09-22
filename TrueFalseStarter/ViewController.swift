@@ -71,11 +71,12 @@ class ViewController: UIViewController {
     
     func displayAnswers() {
         let selectedQuestionDict = triviaProvider.trivia[indexOfSelectedQuestion]
+        
                 
-        trueButton.setTitle(selectedQuestionDict["Option2"], for: .normal)
-        falseButton.setTitle(selectedQuestionDict["Option3"], for: .normal)
-        button3.setTitle(selectedQuestionDict["Answer"], for: .normal)
-        button4.setTitle(selectedQuestionDict["Option4"], for: .normal)
+        trueButton.setTitle(selectedQuestionDict["Option 1"], for: .normal)
+        falseButton.setTitle(selectedQuestionDict["Option 2"], for: .normal)
+        button3.setTitle(selectedQuestionDict["Option 3"], for: .normal)
+        button4.setTitle(selectedQuestionDict["Option 4"], for: .normal)
 
     }
     
@@ -100,17 +101,26 @@ class ViewController: UIViewController {
         questionsAsked += 1
         
         let selectedQuestionDict = triviaProvider.trivia[indexOfSelectedQuestion]
-        let correctAnswer = selectedQuestionDict["Answer"]
+        let correctAnswer = selectedQuestionDict["Correct Answer"]
         
         
+        if (sender === trueButton &&  correctAnswer == "1")
+            || (sender === falseButton && correctAnswer == "2")
+            || (sender === button3 && correctAnswer == "3")
+            || (sender === button4 && correctAnswer == "4"){
+            correctQuestions += 1
+            questionField.text = "Correct!"
+        } else {
+            questionField.text = "Sorry, wrong answer!"
+        }
         
-        if (sender.title(for: .normal) == correctAnswer){
+        /**if (sender.title(for: .normal) == correctAnswer){
             correctQuestions += 1
             questionField.text = "Correct!"
             print("\(correctAnswer!)")
         } else {
             questionField.text = "Sorry, wrong answer!"
-        }
+        }**/
         
         //original part of code
         /**if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
