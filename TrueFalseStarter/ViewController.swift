@@ -51,6 +51,10 @@ class ViewController: UIViewController {
     
     func displayQuestion() {
         
+        trueButton.isEnabled = true
+        falseButton.isEnabled = true
+        button3.isEnabled = true
+        button4.isEnabled = true
         
         feedbackLabel.text = ""
         
@@ -78,7 +82,7 @@ class ViewController: UIViewController {
     func displayAnswers() {
         let selectedQuestionDict = triviaProvider.trivia[indexOfSelectedQuestion]
         
-                
+        
         trueButton.setTitle(selectedQuestionDict["Option 1"], for: .normal)
         falseButton.setTitle(selectedQuestionDict["Option 2"], for: .normal)
         button3.setTitle(selectedQuestionDict["Option 3"], for: .normal)
@@ -119,8 +123,20 @@ class ViewController: UIViewController {
             correctQuestions += 1
             feedbackLabel.textColor = UIColor.init(red: 140/255, green: 255/255, blue: 227/255, alpha: 1)
             feedbackLabel.text = "Correct!"
+            
+            sender.setTitleColor(UIColor.white, for: .disabled)
+            trueButton.isEnabled = false
+            falseButton.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
             //questionField.text = "Correct!"
         } else {
+            sender.setTitleColor(UIColor.white, for: .disabled)
+
+            trueButton.isEnabled = false
+            falseButton.isEnabled = false
+            button3.isEnabled = false
+            button4.isEnabled = false
             feedbackLabel.textColor = UIColor.orange
             feedbackLabel.text = "Sorry, wrong answer!"
             //questionField.text = "Sorry, wrong answer!"
@@ -160,6 +176,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func nextQuestion(_ sender: UIButton) {
+
         nextRound()
     }
     
