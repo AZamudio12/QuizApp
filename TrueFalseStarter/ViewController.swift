@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var nextQuestionButton: UIButton!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +62,7 @@ class ViewController: UIViewController {
             let questionDictionary = triviaProvider.trivia[indexOfSelectedQuestion]
             questionField.text = questionDictionary["Question"]
             playAgainButton.isHidden = true
+            nextQuestionButton.isHidden = true
             randomNumArray.append(indexOfSelectedQuestion)
             
         } else {
@@ -86,6 +91,7 @@ class ViewController: UIViewController {
         falseButton.isHidden = true
         button3.isHidden = true
         button4.isHidden = true
+        nextQuestionButton.isHidden = true
         
         // Display play again button
         playAgainButton.isHidden = false
@@ -95,6 +101,7 @@ class ViewController: UIViewController {
         print("\(randomNumArray)")
         
     }
+    
     
     @IBAction func checkAnswer(_ sender: UIButton) {
         // Increment the questions asked counter
@@ -129,8 +136,8 @@ class ViewController: UIViewController {
         } else {
             questionField.text = "Sorry, wrong answer!"
         }**/
-        
-        loadNextRoundWithDelay(seconds: 2)
+        nextQuestionButton.isHidden = false
+        //loadNextRoundWithDelay(seconds: 2)
     }
     
     func nextRound() {
@@ -145,6 +152,13 @@ class ViewController: UIViewController {
 
         }
     }
+    
+    
+    @IBAction func nextQuestion(_ sender: UIButton) {
+        nextRound()
+    }
+    
+    
     
     @IBAction func playAgain() {
         // Show the answer buttons
