@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var nextQuestionButton: UIButton!
     
+    @IBOutlet weak var feedbackLabel: UILabel!
     
     
     
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
     func displayQuestion() {
         
         
-        
+        feedbackLabel.text = ""
         
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: triviaProvider.trivia.count)
         
@@ -116,9 +117,13 @@ class ViewController: UIViewController {
             || (sender === button3 && correctAnswer == "3")
             || (sender === button4 && correctAnswer == "4"){
             correctQuestions += 1
-            questionField.text = "Correct!"
+            feedbackLabel.textColor = UIColor.init(red: 140/255, green: 255/255, blue: 227/255, alpha: 1)
+            feedbackLabel.text = "Correct!"
+            //questionField.text = "Correct!"
         } else {
-            questionField.text = "Sorry, wrong answer!"
+            feedbackLabel.textColor = UIColor.orange
+            feedbackLabel.text = "Sorry, wrong answer!"
+            //questionField.text = "Sorry, wrong answer!"
         }
         
         /**if (sender.title(for: .normal) == correctAnswer){

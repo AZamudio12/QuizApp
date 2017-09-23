@@ -87,12 +87,6 @@
                                     <action selector="playAgain" destination="BYZ-38-t0r" eventType="touchUpInside" id="klz-B2-JAN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3V-ih-1Ky">
-                                <rect key="frame" x="36" y="40" width="303" height="19.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvn-r1-Zvk">
                                 <rect key="frame" x="36" y="505" width="303" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -106,6 +100,18 @@
                                     <action selector="nextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5mt-vs-tfu"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3V-ih-1Ky">
+                                <rect key="frame" x="36" y="40" width="303" height="19.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="739-v2-DW2">
+                                <rect key="frame" x="36" y="94" width="303" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="0.54839438461287604" green="1" blue="0.89037557206574525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.031372549019607843" green="0.16862745098039217" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -113,14 +119,17 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K17-uy-MvB" secondAttribute="bottom" constant="45" id="1Vb-H4-vLL"/>
                             <constraint firstItem="I3V-ih-1Ky" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="6tm-A7-cx5"/>
                             <constraint firstItem="0CZ-ZX-J5v" firstAttribute="top" secondItem="AS4-HX-g9f" secondAttribute="bottom" constant="30" id="7oM-yh-zPn"/>
+                            <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="739-v2-DW2" secondAttribute="bottom" constant="62" id="Ad0-5k-3fn"/>
                             <constraint firstItem="WZE-P9-9cZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Alf-e5-P7M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mvn-r1-Zvk" secondAttribute="trailing" constant="20" id="EGS-73-5qw"/>
                             <constraint firstItem="mvn-r1-Zvk" firstAttribute="top" secondItem="WZE-P9-9cZ" secondAttribute="bottom" constant="30" id="G6d-aJ-Sct"/>
                             <constraint firstItem="I3V-ih-1Ky" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Izw-W6-bfo"/>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="N8z-cM-M9R"/>
+                            <constraint firstItem="739-v2-DW2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="OFT-nG-azx"/>
                             <constraint firstItem="mvn-r1-Zvk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Oxn-jk-5NM"/>
                             <constraint firstItem="K17-uy-MvB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="UmI-Y5-Bxy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0CZ-ZX-J5v" secondAttribute="trailing" constant="20" id="ZaJ-QR-Yiy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="739-v2-DW2" secondAttribute="trailing" constant="20" id="ahX-f2-5x9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I3V-ih-1Ky" secondAttribute="trailing" constant="20" id="d4y-yw-4Pa"/>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="165" id="dZA-2P-EBM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K17-uy-MvB" secondAttribute="trailing" constant="20" id="e0I-2T-E1g"/>
@@ -137,6 +146,7 @@
                         <outlet property="button3" destination="0CZ-ZX-J5v" id="aZ4-Cv-QsY"/>
                         <outlet property="button4" destination="WZE-P9-9cZ" id="tpA-cW-ChI"/>
                         <outlet property="falseButton" destination="AS4-HX-g9f" id="Xfj-Ws-1ey"/>
+                        <outlet property="feedbackLabel" destination="739-v2-DW2" id="s0Y-DK-fKf"/>
                         <outlet property="nextQuestionButton" destination="mvn-r1-Zvk" id="btK-Rx-Uq3"/>
                         <outlet property="playAgainButton" destination="K17-uy-MvB" id="0Bx-Cm-ye0"/>
                         <outlet property="questionField" destination="I3V-ih-1Ky" id="7UI-o2-ATi"/>
