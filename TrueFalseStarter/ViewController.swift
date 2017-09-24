@@ -88,6 +88,17 @@ class ViewController: UIViewController {
         button3.setTitle(selectedQuestionDict["Option 3"], for: .normal)
         button4.setTitle(selectedQuestionDict["Option 4"], for: .normal)
 
+        
+        trueButton.setTitleColor(UIColor.lightGray, for: .disabled)
+        falseButton.setTitleColor(UIColor.lightGray, for: .disabled)
+        button3.setTitleColor(UIColor.lightGray, for: .disabled)
+        button4.setTitleColor(UIColor.lightGray, for: .disabled)
+
+        trueButton.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 1.0)
+        falseButton.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 1.0)
+        button3.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 1.0)
+        button4.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 1.0)
+
     }
     
     func displayScore() {
@@ -124,14 +135,26 @@ class ViewController: UIViewController {
             feedbackLabel.textColor = UIColor.init(red: 140/255, green: 255/255, blue: 227/255, alpha: 1)
             feedbackLabel.text = "Correct!"
             
-            sender.setTitleColor(UIColor.white, for: .disabled)
             trueButton.isEnabled = false
             falseButton.isEnabled = false
             button3.isEnabled = false
             button4.isEnabled = false
+
+            
+            
+            trueButton.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+            falseButton.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+            button3.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+            button4.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+ 
+
+            
+
+
+            sender.setTitleColor(UIColor.white, for: .disabled)
             //questionField.text = "Correct!"
         } else {
-            sender.setTitleColor(UIColor.white, for: .disabled)
+            
 
             trueButton.isEnabled = false
             falseButton.isEnabled = false
@@ -139,7 +162,16 @@ class ViewController: UIViewController {
             button4.isEnabled = false
             feedbackLabel.textColor = UIColor.orange
             feedbackLabel.text = "Sorry, wrong answer!"
+            
+            trueButton.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+            falseButton.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+            button3.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+            button4.backgroundColor = UIColor.init(red: 12/255, green: 121/255, blue: 150/255, alpha: 0.5)
+            
+            sender.setTitleColor(UIColor.white, for: .disabled)
+
             //questionField.text = "Sorry, wrong answer!"
+
         }
         
         /**if (sender.title(for: .normal) == correctAnswer){
@@ -158,12 +190,12 @@ class ViewController: UIViewController {
             questionField.text = "Sorry, wrong answer!"
         }**/
         nextQuestionButton.isHidden = false
-        //loadNextRoundWithDelay(seconds: 2)
     }
     
     func nextRound() {
         if questionsAsked == questionsPerRound {
             // Game is over
+            feedbackLabel.text = ""
             randomNumArray.removeAll()
             displayScore()
         } else {
@@ -177,7 +209,17 @@ class ViewController: UIViewController {
     
     @IBAction func nextQuestion(_ sender: UIButton) {
 
-        nextRound()
+        if questionsAsked == questionsPerRound {
+            // Game is over
+            feedbackLabel.text = ""
+            randomNumArray.removeAll()
+            displayScore()
+        } else {
+            // Continue game
+            displayQuestion()
+            displayAnswers()
+            
+        }
     }
     
     
